@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh; /* Full viewport height */
+    text-align: center;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+p {
+    margin-bottom: 30px;
+    font-size: 1.25rem;
+    color: #666;
+}
+
+/* Style for the select dropdown */
+select {
+    width: 100%;
+    max-width: 300px; /* Maximum width for the dropdown */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+/* Style for the button */
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff; /* Primary button color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+button:disabled {
+    background-color: #d6d6d6; /* Disabled button color */
+    cursor: not-allowed;
+}

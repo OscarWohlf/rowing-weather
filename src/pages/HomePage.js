@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './HomePage.css'
 
 function HomePage() {
     const [selectedLocation, setSelectedLocation] = useState('');
@@ -22,7 +23,7 @@ function HomePage() {
     };
 
     return (
-        <div>
+        <div className="container">
             <h2>Welcome to The Rowing Weather App!</h2>
             <p>Select a location to view Rowing Conditions</p>
             <select value={selectedLocation} onChange={handleLocationChange}>
