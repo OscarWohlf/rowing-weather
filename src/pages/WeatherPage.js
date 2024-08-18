@@ -23,6 +23,11 @@ function WeatherPage() {
         getWeather();
     }, [location]);
 
+    const formatTimeStamp = (timeStamp) => {
+        const date = new Date(timeStamp * 1000);
+        return date.toLocaleTimeString();
+    }
+
     if (loading) {
         return <p>Loading weather data...</p>
     }
@@ -39,6 +44,7 @@ function WeatherPage() {
                     <p>Location: {weatherData.name}</p>
                     <p>Temperature: {weatherData.main.temp} C</p>
                     <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+                    <p>Updated at: {formatTimeStamp(weatherData.dt)}</p>
                 </div>
             ) : (
                 <p>No Data Available</p>
