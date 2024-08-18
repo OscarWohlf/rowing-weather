@@ -7,7 +7,7 @@ function AppRoutes() {
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
-                <Route path="/weather" element={<WeatherPage/>}/>
+                <Route path="/weather/:location" element={<WeatherPage/>}/>
             </Routes>
         </Router>
     );

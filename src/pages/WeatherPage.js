@@ -1,21 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { fetchWeatherData } from '../services/weatherService';
+import { useParams } from 'react-router-dom';
 
 function WeatherPage() {
+    const {location} = useParams();
     const [weatherData, setWeatherData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const getWeather = async () => {
             try {
-                const data = await fetchWeatherData('London');
+                const data = await fetchWeatherData(location);
                 setWeatherData(data);
             } catch(error) {
                 console.error('Failed to fetch weather data', error);
+            } finally {
+                setLoading(false);
             }
         };
 
         getWeather();
-    }, []);
+    }, [location]);
+
+    if (loading) {
+        return <p>Loading weather data...</p>
+    }
+
+    if (error) {
+        return <p>{error}</p>
+    }
 
     return(
         <div>
@@ -27,7 +41,7 @@ function WeatherPage() {
                     <p>Wind Speed: {weatherData.wind.speed} m/s</p>
                 </div>
             ) : (
-                <p>Loading Weather Data...</p>
+                <p>No Data Available</p>
             )}
         </div>
     );
