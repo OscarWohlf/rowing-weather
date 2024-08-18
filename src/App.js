@@ -1,3 +1,5 @@
+import AppRoutes from "./routes";
+
 function App() {
   return (
     <div>
@@ -5,7 +7,7 @@ function App() {
         <h1>Rowing Weather App</h1>
       </header>
       <main>
-        <p>Select a location to view the weather.</p>
+        <AppRoutes/>
       </main>
     </div>
   );
