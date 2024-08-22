@@ -29,3 +29,27 @@
     border-color: #6c757d;
   }
   
+  .weather-info {
+    font-size: 1.2rem;
+  }
+  
+  .wind-direction {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .wind-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent; /* Smaller left border */
+    border-right: 10px solid transparent; /* Smaller right border */
+    border-bottom: 30px solid #3498db; /* Arrow color */
+    margin-right: 10px;
+    transform: rotate(0deg); /* Default rotation */
+    transition: transform 0.3s ease;
+  }
+  
+
+  
+  

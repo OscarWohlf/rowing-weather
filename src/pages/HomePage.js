@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './HomePage.css'
+import {locationMapping} from '../locationMapping';
 
 function HomePage() {
-    const [selectedLocation, setSelectedLocation] = useState('');
+    const [selectedLake, setSelectedLake] = useState('');
     const navigate = useNavigate();
 
-    const locations = [
-        'Oslo',
-        'Copenhagen',
-        'New York'
-      ];
+    const lakes = Object.keys(locationMapping);
 
     const handleLocationChange = (event) => {
-        setSelectedLocation(event.target.value);
+        setSelectedLake(event.target.value);
     };
 
     const handleSubmit = () => {
-        if (selectedLocation) {
-            navigate(`/weather/${selectedLocation}`);
+        const cityName = locationMapping[selectedLake]
+        if (cityName) {
+            navigate(`/weather/${cityName}`);
         }
     };
 
@@ -26,17 +24,17 @@ function HomePage() {
         <div className="container">
             <h2>Welcome to The Rowing Weather App!</h2>
             <p>Select a location to view Rowing Conditions</p>
-            <select value={selectedLocation} onChange={handleLocationChange}>
+            <select value={selectedLake} onChange={handleLocationChange}>
                 <option value="">
-                    Select a location
+                    Select a lake
                 </option>
-                {locations.map((location) => (
-                    <option key={location} value={location}>
-                        {location}
+                {lakes.map((lake) => (
+                    <option key={lake} value={lake}>
+                        {lake}
                     </option>
                 ))}
             </select>
-            <button onClick={handleSubmit} disabled={!selectedLocation}>
+            <button onClick={handleSubmit} disabled={!selectedLake}>
                 View Weather
             </button>
         </div>
